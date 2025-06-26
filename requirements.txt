@@ -1,0 +1,10 @@
+streamlit
+langchain
+chromadb
+openai
+PyMuPDF
+python-docx
+markdown
+PyYAML
+requests
+beautifulsoup4 
