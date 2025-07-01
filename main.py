@@ -8,6 +8,7 @@ from pathlib import Path
 from langchain.vectorstores import Chroma
 from langchain.embeddings import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
+#from langchain_community.chat_models import ChatTogether
 from langchain.chains import RetrievalQA
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
@@ -161,7 +162,9 @@ if st.button("Ask") and question:
                 input_variables=["context", "question"],
                 template=load_prompt()
             )
-            llm = ChatOpenAI(temperature=0, model_name="gpt-4")
+            #llm = ChatOpenAI(temperature=0, model_name="gpt-4")
+            llm = ChatOpenAI(temperature=0, model_name="gpt-4o")
+            #llm = ChatTogether(model="meta-llama/Llama-3-70b-chat-hf", together_api_key="YOUR_KEY")
             qa = RetrievalQA.from_chain_type(
                 llm=llm,
                 chain_type="stuff",
